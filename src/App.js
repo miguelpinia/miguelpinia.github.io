@@ -11,8 +11,9 @@ import {
   Menu,
   Row,
   Tooltip,
-  Typography
+  Typography,
 } from 'antd';
+
 import {
   AntDesignOutlined,
   GithubOutlined,
@@ -21,83 +22,145 @@ import {
   MenuOutlined,
   NotificationOutlined,
   TwitterOutlined,
-  UserOutlined
+  UserOutlined,
 } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
-const { Title, Text } = Typography;
+const { Title, Text, Paragraph, Link } = Typography;
+
+const filePDF = `${process.env.PUBLIC_URL}/cv_13.pdf`;
 
 const Main = () => {
   return (
     <React.Fragment>
-      <Row>
-        <Col span={8} />
-        <Col span={8}>
-          <Row justify='center'>
-            <Avatar
-              size={{
-                xs: 100,
-                sm: 100,
-                md: 100,
-                lg: 100,
-                xl: 100,
-                xxl: 100
-              }}
-              src='https://avatars1.githubusercontent.com/u/5816646?s=460&u=250c0dc6f60ffaaa30deb15669b9b9bd4448d817&v=4'
-              icon={<AntDesignOutlined />}
-            />
-          </Row>
-          <Row justify='center'>
-            <Title level={3}>Miguel Piña</Title>
-          </Row>
-          <Row justify='center'>
-            <Text type='secondary'>CS PhD Student</Text>
-          </Row>
-          <Row justify='center'>
-            <Col span={8}>
-              <Row justify='center'>
-                <Tooltip title='Twitter' placement='bottom' color='blue'>
-                  <Button
-                    type='link'
-                    shape='circle'
-                    icon={<TwitterOutlined />}
-                    size='large'
-                    href='https://twitter.com/miguelpinia'
-                  />
-                </Tooltip>
-              </Row>
-            </Col>
-            <Col span={8}>
-              <Row justify='center'>
-                <Tooltip title='Github' placement='bottom' color='blue'>
-                  <Button
-                    type='link'
-                    href='https://github.com/miguelpinia'
-                    shape='circle'
-                    icon={<GithubOutlined />}
-                    size='large'
-                  />
-                </Tooltip>
-              </Row>
-            </Col>
-            <Col span={8}>
-              <Row justify='center'>
-                <Tooltip title='LinkedIn' placement='bottom' color='blue'>
-                  <Button
-                    type='link'
-                    shape='circle'
-                    icon={<LinkedinOutlined />}
-                    size='large'
-                    href='https://www.linkedin.com/in/miguel-angel-pi%C3%B1a-avelino-a3488a26/'
-                  />
-                </Tooltip>
-              </Row>
-            </Col>
-          </Row>
-        </Col>
-        <Col span={8} />
-      </Row>
+      <Col>
+        <Row>
+          <Col span={8} />
+          <Col span={8}>
+            <Row justify='center'>
+              <Avatar
+                size={{
+                  xs: 100,
+                  sm: 100,
+                  md: 100,
+                  lg: 100,
+                  xl: 100,
+                  xxl: 100,
+                }}
+                src='https://avatars1.githubusercontent.com/u/5816646?s=460&u=250c0dc6f60ffaaa30deb15669b9b9bd4448d817&v=4'
+                icon={<AntDesignOutlined />}
+              />
+            </Row>
+            <Row justify='center'>
+              <Title level={2}>Miguel Piña</Title>
+            </Row>
+            <Row justify='center'>
+              <Text type='secondary'>CS PhD Student</Text>
+            </Row>
+            <Row justify='center'>
+              <Col span={8}>
+                <Row justify='center'>
+                  <Tooltip title='Twitter' placement='bottom' color='blue'>
+                    <Button
+                      type='link'
+                      shape='circle'
+                      icon={<TwitterOutlined />}
+                      size='large'
+                      href='https://twitter.com/miguelpinia'
+                    />
+                  </Tooltip>
+                </Row>
+              </Col>
+              <Col span={8}>
+                <Row justify='center'>
+                  <Tooltip title='Github' placement='bottom' color='blue'>
+                    <Button
+                      type='link'
+                      href='https://github.com/miguelpinia'
+                      shape='circle'
+                      icon={<GithubOutlined />}
+                      size='large'
+                    />
+                  </Tooltip>
+                </Row>
+              </Col>
+              <Col span={8}>
+                <Row justify='center'>
+                  <Tooltip title='LinkedIn' placement='bottom' color='blue'>
+                    <Button
+                      type='link'
+                      shape='circle'
+                      icon={<LinkedinOutlined />}
+                      size='large'
+                      href='https://www.linkedin.com/in/miguel-angel-pi%C3%B1a-avelino-a3488a26/'
+                    />
+                  </Tooltip>
+                </Row>
+              </Col>
+            </Row>
+          </Col>
+          <Col span={8} />
+        </Row>
+        <Row>
+          <Col span={4} />
+          <Col span={16}>
+            <Row>
+              <Title level={4}>About Me</Title>
+              <ul>
+                <li>
+                  <Paragraph>
+                    I'm a Ph.D. Student in the{' '}
+                    <Link href='http://www.mcc.unam.mx/' target='_blank'>
+                      Computer Science and Engineering
+                    </Link>{' '}
+                    graduate program at{' '}
+                    <Link href='www.unam.mx' target='_blank'>
+                      UNAM
+                    </Link>
+                    , advised by Prof.{' '}
+                    <Link
+                      href='https://www.matem.unam.mx/fsd/armando'
+                      target='_blank'>
+                      Armando Castañeda
+                    </Link>{' '}
+                    [
+                    <Link href={filePDF} target='_blank'>
+                      Curriculum
+                    </Link>
+                    ][
+                    <Link
+                      href='https://scholar.google.com/citations?user=8GGrC6QAAAAJ&hl=en'
+                      target='_blank'>
+                      Google Scholar
+                    </Link>
+                    ]
+                  </Paragraph>
+                </li>
+                <li>
+                  <Paragraph>
+                    My research interests lie in the general areas of concurrent
+                    and distributed computing. Currently, I'm working in topics
+                    like relaxations applied to methods of concurrent
+                    data-structures. These relaxations also can be applied to
+                    work-stealing methods.
+                  </Paragraph>
+                </li>
+                <li>
+                  <Paragraph>
+                    Another interests that I have are:{' '}
+                    <Text italic>software-engineering</Text>,
+                    <Text italic>functional-programming</Text>,{' '}
+                    <Text italic>programming-languages</Text> and
+                    <Text italic>databases</Text>.
+                  </Paragraph>
+                </li>
+              </ul>
+            </Row>
+          </Col>
+          <Col span={4} />
+        </Row>
+      </Col>
     </React.Fragment>
   );
 };
@@ -153,7 +216,7 @@ const MyMenu = ({ selectedKey, changeSelectedKey }) => {
             Experience
           </Menu.Item>
         </SubMenu>
-        <SubMenu key='sub2' icon={<LaptopOutlined />} title='Works'>
+        <SubMenu key='sub2' icon={<LaptopOutlined />} title='Work & Research'>
           <Menu.Item key='interests' onClick={changeSelectedKey}>
             Interests
           </Menu.Item>
@@ -179,16 +242,14 @@ const MyMenu = ({ selectedKey, changeSelectedKey }) => {
 
 const Sidebar = ({ menu }) => {
   return (
-    <>
-      <Sider
-        width={200}
-        className='site-layout-background'
-        breakpoint='lg'
-        collapsedWidth={0}
-        trigger={null}>
-        {menu}
-      </Sider>
-    </>
+    <Sider
+      width={200}
+      className='site-layout-background'
+      breakpoint='lg'
+      collapsedWidth={0}
+      trigger={null}>
+      {menu}
+    </Sider>
   );
 };
 
@@ -200,7 +261,7 @@ const views = {
   curriculum: <Curriculum />,
   software: <Software />,
   articles: <Articles />,
-  blog: <Blog />
+  blog: <Blog />,
 };
 
 const breads = {
@@ -211,7 +272,7 @@ const breads = {
   curriculum: ['Works', 'Curriculum'],
   software: ['Works', 'Software'],
   articles: ['Works', 'Articles'],
-  blog: ['Blog', 'Posts']
+  blog: ['Blog', 'Posts'],
 };
 
 const Page = () => {
@@ -220,7 +281,6 @@ const Page = () => {
   const [breadcrumbs, setBreadcrumbs] = React.useState('main');
 
   const changeSelectedKey = (event) => {
-    console.log('changeSelectedKey', event);
     const key = event.key;
     setSelectedKey(key);
     setBreadcrumbs(key);
@@ -271,7 +331,7 @@ const Page = () => {
               className='site-layout-background'
               style={{
                 padding: '24px 24px',
-                minHeight: 720
+                minHeight: 720,
               }}>
               {views[selectedKey] || <Default />}
             </Content>
