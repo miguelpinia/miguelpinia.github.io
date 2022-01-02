@@ -1,11 +1,5 @@
 import React from 'react';
 import './App.css';
-import ThemeConfig from 'theme';
-import ScrollToTop from 'components/ScrollToTop';
-import GlobalStyles from 'theme/globalStyles';
-import Router from 'routes';
-
-import { StateProvider } from 'state/StateProvider';
 
 import {
   Avatar,
@@ -346,8 +340,7 @@ const Page = () => {
               }}
             >
               {views[selectedKey] || <Default />}
-            </Content>
-            PP{' '}
+            </Content>{' '}
           </Layout>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Miguel Piña ©2020</Footer>
@@ -357,15 +350,7 @@ const Page = () => {
 };
 
 const App = () => {
-  return (
-    <StateProvider>
-      <ThemeConfig>
-        <ScrollToTop />
-        <GlobalStyles />
-        <Router />
-      </ThemeConfig>
-    </StateProvider>
-  );
+  return <Page />;
 };
 
 export default App;
