@@ -1,5 +1,11 @@
 import React from 'react';
 import './App.css';
+import ThemeConfig from 'theme';
+import ScrollToTop from 'components/ScrollToTop';
+import GlobalStyles from 'theme/globalStyles';
+import Router from 'routes';
+
+import { StateProvider } from 'state/StateProvider';
 
 import {
   Avatar,
@@ -121,7 +127,8 @@ const Main = () => {
                     , advised by Prof.{' '}
                     <Link
                       href='https://www.matem.unam.mx/fsd/armando'
-                      target='_blank'>
+                      target='_blank'
+                    >
                       Armando Castañeda
                     </Link>{' '}
                     [
@@ -131,7 +138,8 @@ const Main = () => {
                     ][
                     <Link
                       href='https://scholar.google.com/citations?user=8GGrC6QAAAAJ&hl=en'
-                      target='_blank'>
+                      target='_blank'
+                    >
                       Google Scholar
                     </Link>
                     ]
@@ -139,19 +147,18 @@ const Main = () => {
                 </li>
                 <li>
                   <Paragraph>
-                    My research interests lie in the general areas of concurrent
-                    and distributed computing. Currently, I'm working in topics
-                    like relaxations applied to methods of concurrent
-                    data-structures. These relaxations also can be applied to
-                    work-stealing methods.
+                    My research interests lie in general areas of concurrent and
+                    distributed computing. Currently, I'm working in topics like
+                    relaxations applied to methods of concurrent
+                    data-structures.
                   </Paragraph>
                 </li>
                 <li>
                   <Paragraph>
                     Another interests that I have are:{' '}
-                    <Text italic>software-engineering</Text>,
+                    <Text italic>software-engineering</Text>,{' '}
                     <Text italic>functional-programming</Text>,{' '}
-                    <Text italic>programming-languages</Text> and
+                    <Text italic>programming-languages</Text> and{' '}
                     <Text italic>databases</Text>.
                   </Paragraph>
                 </li>
@@ -204,7 +211,8 @@ const MyMenu = ({ selectedKey, changeSelectedKey }) => {
         mode='inline'
         defaultSelectedKeys={['main']}
         defaultOpenKeys={['sub1']}
-        style={{ height: '100%', borderRight: 0 }}>
+        style={{ height: '100%', borderRight: 0 }}
+      >
         <SubMenu key='sub1' icon={<UserOutlined />} title='Home'>
           <Menu.Item key='main' onClick={changeSelectedKey}>
             Main
@@ -247,7 +255,8 @@ const Sidebar = ({ menu }) => {
       className='site-layout-background'
       breakpoint='lg'
       collapsedWidth={0}
-      trigger={null}>
+      trigger={null}
+    >
       {menu}
     </Sider>
   );
@@ -298,7 +307,8 @@ const Page = () => {
             title='Menu'
             placement='left'
             onClose={() => setVisible(false)}
-            visible={visible}>
+            visible={visible}
+          >
             {menu}
           </Drawer>
           <Row>
@@ -312,29 +322,32 @@ const Page = () => {
             </Col>
             <Col flex='auto'>
               <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['1']}>
-                <Menu.Item key='1'>Miguel Piña</Menu.Item>
+                <Menu.Item key='1'>My personal website</Menu.Item>
               </Menu>
             </Col>
           </Row>
         </Header>
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
-            {breads[breadcrumbs].map((bread) => (
-              <Breadcrumb.Item>{bread}</Breadcrumb.Item>
+            {breads[breadcrumbs].map((bread, index) => (
+              <Breadcrumb.Item key={index}>{bread}</Breadcrumb.Item>
             ))}
           </Breadcrumb>
           <Layout
             className='site-layout-background'
-            style={{ padding: '24px 0' }}>
+            style={{ padding: '24px 0' }}
+          >
             <Sidebar menu={menu} />
             <Content
               className='site-layout-background'
               style={{
                 padding: '24px 24px',
                 minHeight: 720,
-              }}>
+              }}
+            >
               {views[selectedKey] || <Default />}
             </Content>
+            PP{' '}
           </Layout>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Miguel Piña ©2020</Footer>
@@ -343,8 +356,16 @@ const Page = () => {
   );
 };
 
-function App() {
-  return <Page />;
-}
+const App = () => {
+  return (
+    <StateProvider>
+      <ThemeConfig>
+        <ScrollToTop />
+        <GlobalStyles />
+        <Router />
+      </ThemeConfig>
+    </StateProvider>
+  );
+};
 
 export default App;
