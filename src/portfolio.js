@@ -16,7 +16,7 @@ const greeting = {
   full_name: 'Miguel Piña',
   subTitle:
     'PhD Candidate, Full Stack Developer, Open Source Enthusiast 🔥. Always learning.',
-  resumeLink: `${process.env.PUBLIC_URL}/cv_13.pdf`,
+  resumeLink: `${process.env.PUBLIC_URL}/resume.pdf`,
   mail: 'mailto:miguel_pinia@ciencias.unam.mx',
 };
 
