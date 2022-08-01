@@ -551,6 +551,7 @@ const contactPageData = {
     profile_image_path: 'miguel.jpg',
     description:
       'You can contact me at the places mentioned below. I will try to get back to you as fast as I can. ',
+    cv_document: 'resume.pdf',
   },
   blogSection: {
     title: 'Blogs',

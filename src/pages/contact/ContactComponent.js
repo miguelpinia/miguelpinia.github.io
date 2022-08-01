@@ -53,7 +53,7 @@ function Contact(props) {
               <a
                 {...styles}
                 className='general-btn'
-                href={greeting.resumeLink}
+                href={require(`../../assests/pdfs/${ContactData['cv_document']}`)}
                 target='_blank'
                 rel='noopener noreferrer'
               >
